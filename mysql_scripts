@@ -1,0 +1,3 @@
+create table user(user_id varchar(20) primary key, name varchar(20) not null, email varchar(35) not null unique, password varchar(50) not null, verified boolean not null default false);
+
+create table token(token_id varchar(20) primary key,token varchar(40) not null unique,user_id varchar(20) not null, expiry varchar(20) not null,foreign key (user_id) references user(user_id) on delete cascade);
